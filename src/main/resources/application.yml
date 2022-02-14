@@ -1,0 +1,28 @@
+server:
+  port: 9081
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gb28181-client
+logging:
+  file:
+    name: logs/gb28181-client.log
+  level:
+    com.genersoft.iot: debug
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
+      total-size-cap: 300MB
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.wydpp.**.model
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      insertStrategy: NOT_EMPTY
+      updateStrategy: NOT_EMPTY
+      selectStrategy: NOT_EMPTY
